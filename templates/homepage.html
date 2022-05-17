@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box">
+                    <button type="button" class="btn btn-link btn-lg"  name="button" onclick="buttonAction()" >CLIQUE PARA GERAR SENHA</button>
+
+        </div>
+
+    </div>
+
+</body>
+<style>
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: #87cefa;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0px;
+}
+</style>
+
+<script>
+    const name = document.querySelector(".btn");
+    let click = 0;
+
+    function generatePassword() {
+          var chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJLMNOPQRSTUVWXYZ!@#$%^&*()+?><:{}[]";
+          var passwordLength = 16;
+          var password = "";
+
+          for (var i = 0; i < passwordLength; i++) {
+            var randomNumber = Math.floor(Math.random() * chars.length);
+            password += chars.substring(randomNumber, randomNumber + 1);
+          }
+
+          return password;
+          }
+
+    function buttonAction(){
+        click = click + 1;
+        if (click<=2){
+        console.log(generatePassword());
+
+        } else {
+        var jan = window.open("txt.html", "janelaNova");
+        jan.document.write(`<h2>${generatePassword()}</h2>`)
+        }
+       }
+</script>
