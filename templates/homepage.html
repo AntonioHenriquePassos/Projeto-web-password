@@ -47,15 +47,34 @@ body {
 
           return password;
           }
+    let passwordList= [];
+    let validPasswordDayTime = 1;
+    let firstClickTime = Date.now();
+    let getCurrentTime = Date.now();
+    let oneDay = 1000*60*60*24;
 
     function buttonAction(){
         click = click + 1;
-        if (click<=2){
-        console.log(generatePassword());
+        getCurrentTime = Date.now();
+        if (click ==1){
+            let firstClickTime = Date.now();
+        }
+        var jan = window.open();
+
+        if (click<=2 && (getCurrentTime-firstClickTime)/oneDay <= validPasswordDayTime ){
+            passwordList [click] = generatePassword();
+            jan.document.write(`<h2>A senha é: ${passwordList[1]}</h2>`);
 
         } else {
-        var jan = window.open("txt.html", "janelaNova");
-        jan.document.write(`<h2>${generatePassword()}</h2>`)
+            click = 1;
+             if (click ==1){
+                let firstClickTime = Date.now();
+             }
+            passwordList= [];
+            passwordList [click] = generatePassword();
+            jan.document.write(`<h2>A senha é: ${passwordList[1]}</h2>`);
+
+
         }
        }
 </script>
